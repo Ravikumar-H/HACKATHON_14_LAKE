@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Quizzes</title>
+</head>
+<body>
+    <h1>Your Assigned Quizzes</h1>
+    {% if quizzes %}
+        <ul>
+            {% for quiz in quizzes %}
+                <li>
+                    {{ quiz.title }} - 
+                    <a href="{% url 'quiz_detail' quiz.id %}">Take Quiz</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No quizzes assigned yet.</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<form method="post">
+    {% csrf_token %}
+    {% for question in questions %}
+        <p>{{ question.text }}</p>
+        <input type="text" name="answer_{{ question.id }}">
+    {% endfor %}
+    <button type="submit">Submit Answers</button>
+</form>
